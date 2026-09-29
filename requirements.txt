@@ -1,0 +1,7 @@
+altair>=5.0
+vega-datasets>=0.9
+pandas>=1.5
+numpy>=1.24
+scikit-learn>=1.3
+jupyterlab>=4.0
+vl-convert-python>=1.0   # static PNG/SVG export

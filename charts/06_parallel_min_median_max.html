@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"data": {"name": "data-a957cf10570d4e653161237abd547ea5"}, "mark": {"type": "area", "opacity": 0.25}, "encoding": {"x": {"axis": {"labelAngle": -45}, "field": "variable", "sort": ["flavanoids", "od280/od315_of_diluted_wines", "hue", "color_intensity", "total_phenols", "alcohol", "malic_acid", "alcalinity_of_ash", "proanthocyanins", "nonflavanoid_phenols", "ash"], "title": null, "type": "nominal"}, "y": {"field": "min", "title": "value", "type": "quantitative"}, "y2": {"field": "max"}}}, {"data": {"name": "data-73471abf8fa04d81e335a0b3f65ee1fa"}, "mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "statistic", "type": "nominal"}, "tooltip": [{"field": "variable", "type": "nominal"}, {"field": "statistic", "type": "nominal"}, {"field": "value", "format": ".3f", "type": "quantitative"}], "x": {"field": "variable", "sort": ["flavanoids", "od280/od315_of_diluted_wines", "hue", "color_intensity", "total_phenols", "alcohol", "malic_acid", "alcalinity_of_ash", "proanthocyanins", "nonflavanoid_phenols", "ash"], "title": null, "type": "nominal"}, "y": {"field": "value", "type": "quantitative"}}}], "height": 300, "title": "Min / median / max per variable (standardised)", "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-a957cf10570d4e653161237abd547ea5": [{"variable": "alcohol", "min": -2.4342353470856977, "median": 0.060999882261548254, "max": 2.2597715200031785}, {"variable": "malic_acid", "min": -1.4329830495567168, "median": -0.42311201076124766, "max": 3.1091924671589037}, {"variable": "ash", "min": -3.6791622340370105, "median": -0.023821322792381975, "max": 3.156325269990446}, {"variable": "alcalinity_of_ash", "min": -2.6710181364687173, "median": 0.00151829490483276, "max": 3.1545107139410433}, {"variable": "total_phenols", "min": -2.107246023249296, "median": 0.09595985564457041, "max": 2.539515466781404}, {"variable": "flavanoids", "min": -1.6959705266274119, "median": 0.10614973996849836, "max": 3.0628317372525964}, {"variable": "nonflavanoid_phenols", "min": -1.8682340238414565, "median": -0.17609475049050752, "max": 2.4024031898537954}, {"variable": "proanthocyanins", "min": -2.0690341807257084, "median": -0.0628978516405199, "max": 3.4850725120254245}, {"variable": "color_intensity", "min": -1.634288275894709, "median": -0.15922463399488132, "max": 3.435431924417896}, {"variable": "hue", "min": -2.0947324050170844, "median": 0.03312687210061617, "max": 3.3016942153020326}, {"variable": "od280/od315_of_diluted_wines", "min": -1.8950538941648851, "median": 0.2377347570102168, "max": 1.960914991734472}], "data-73471abf8fa04d81e335a0b3f65ee1fa": [{"variable": "alcohol", "statistic": "min", "value": -2.4342353470856977}, {"variable": "malic_acid", "statistic": "min", "value": -1.4329830495567168}, {"variable": "ash", "statistic": "min", "value": -3.6791622340370105}, {"variable": "alcalinity_of_ash", "statistic": "min", "value": -2.6710181364687173}, {"variable": "total_phenols", "statistic": "min", "value": -2.107246023249296}, {"variable": "flavanoids", "statistic": "min", "value": -1.6959705266274119}, {"variable": "nonflavanoid_phenols", "statistic": "min", "value": -1.8682340238414565}, {"variable": "proanthocyanins", "statistic": "min", "value": -2.0690341807257084}, {"variable": "color_intensity", "statistic": "min", "value": -1.634288275894709}, {"variable": "hue", "statistic": "min", "value": -2.0947324050170844}, {"variable": "od280/od315_of_diluted_wines", "statistic": "min", "value": -1.8950538941648851}, {"variable": "alcohol", "statistic": "median", "value": 0.060999882261548254}, {"variable": "malic_acid", "statistic": "median", "value": -0.42311201076124766}, {"variable": "ash", "statistic": "median", "value": -0.023821322792381975}, {"variable": "alcalinity_of_ash", "statistic": "median", "value": 0.00151829490483276}, {"variable": "total_phenols", "statistic": "median", "value": 0.09595985564457041}, {"variable": "flavanoids", "statistic": "median", "value": 0.10614973996849836}, {"variable": "nonflavanoid_phenols", "statistic": "median", "value": -0.17609475049050752}, {"variable": "proanthocyanins", "statistic": "median", "value": -0.0628978516405199}, {"variable": "color_intensity", "statistic": "median", "value": -0.15922463399488132}, {"variable": "hue", "statistic": "median", "value": 0.03312687210061617}, {"variable": "od280/od315_of_diluted_wines", "statistic": "median", "value": 0.2377347570102168}, {"variable": "alcohol", "statistic": "max", "value": 2.2597715200031785}, {"variable": "malic_acid", "statistic": "max", "value": 3.1091924671589037}, {"variable": "ash", "statistic": "max", "value": 3.156325269990446}, {"variable": "alcalinity_of_ash", "statistic": "max", "value": 3.1545107139410433}, {"variable": "total_phenols", "statistic": "max", "value": 2.539515466781404}, {"variable": "flavanoids", "statistic": "max", "value": 3.0628317372525964}, {"variable": "nonflavanoid_phenols", "statistic": "max", "value": 2.4024031898537954}, {"variable": "proanthocyanins", "statistic": "max", "value": 3.4850725120254245}, {"variable": "color_intensity", "statistic": "max", "value": 3.435431924417896}, {"variable": "hue", "statistic": "max", "value": 3.3016942153020326}, {"variable": "od280/od315_of_diluted_wines", "statistic": "max", "value": 1.960914991734472}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
