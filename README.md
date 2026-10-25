@@ -2,14 +2,11 @@
 
 Interactive data visualization in [Altair](https://altair-viz.github.io/) /
 Vega-Lite — coursework and exercise solutions from the *Advanced Data
-Visualization for Artificial Intelligence* course at Freie Universität Berlin
-(summer term 2026).
+Visualization for Artificial Intelligence* course at FU Berlin.
 
 The course works through the grammar of graphics from first principles: marks
 and encodings, data transforms, scales and guides, multi-view composition,
-interaction, cartography, and text. This repository collects the nine course
-notebooks, the submitted homework, and my solutions to the open exercises.
-
+interaction, cartography, and text.
 ---
 
 ## Homework
