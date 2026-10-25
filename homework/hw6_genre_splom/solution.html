@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+         margin: 0; padding: 24px; }
+  #vis { display: flex; flex-direction: column; align-items: center; }
+  .vega-bindings { display: flex; justify-content: center; align-items: center;
+                   flex-wrap: wrap; gap: .35em; margin-top: 18px;
+                   font-size: 14px; }
+  .vega-bind { display: flex; align-items: center; gap: .3em; }
+  .vega-bind label { display: inline-flex; align-items: center; gap: .25em;
+                     margin-right: .6em; }
+</style>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}}, "vconcat": [{"hconcat": [{"mark": {"type": "circle", "size": 22}, "encoding": {"color": {"condition": {"test": {"and": [{"param": "brush"}, {"param": "genre"}]}, "field": "Major_Genre", "legend": {"columns": 2, "symbolLimit": 0, "title": "Major genre"}, "scale": {"scheme": "tableau20"}, "type": "nominal"}, "value": "#d9d9d9"}, "opacity": {"condition": {"test": {"and": [{"param": "brush"}, {"param": "genre"}]}, "value": 0.75}, "value": 0.12}, "size": {"condition": {"test": {"and": [{"param": "brush"}, {"param": "genre"}]}, "value": 30}, "value": 14}, "tooltip": [{"field": "Title", "type": "nominal"}, {"field": "Major_Genre", "type": "nominal"}, {"field": "MPAA_Rating", "type": "nominal"}, {"field": "Rotten_Tomatoes_Rating", "title": "Rotten Tomatoes", "type": "quantitative"}, {"field": "IMDB_Rating", "title": "IMDB", "type": "quantitative"}, {"field": "Production_Budget", "format": "$,.0f", "title": "Budget", "type": "quantitative"}], "x": {"axis": {"labels": false, "title": null}, "field": "Rotten_Tomatoes_Rating", "scale": {"zero": false}, "type": "quantitative"}, "y": {"axis": {"labels": true, "title": "IMDB"}, "field": "IMDB_Rating", "scale": {"zero": false}, "type": "quantitative"}}, "height": 200, "name": "view_1", "transform": [{"filter": {"param": "Rating"}}, {"filter": "isValid(datum.Major_Genre)"}], "width": 200}], "spacing": 16}, {"hconcat": [{"mark": {"type": "circle", "size": 22}, "encoding": {"color": {"condition": {"test": {"and": [{"param": "brush"}, {"param": "genre"}]}, "field": "Major_Genre", "legend": {"columns": 2, "symbolLimit": 0, "title": "Major genre"}, "scale": {"scheme": "tableau20"}, "type": "nominal"}, "value": "#d9d9d9"}, "opacity": {"condition": {"test": {"and": [{"param": "brush"}, {"param": "genre"}]}, "value": 0.75}, "value": 0.12}, "size": {"condition": {"test": {"and": [{"param": "brush"}, {"param": "genre"}]}, "value": 30}, "value": 14}, "tooltip": [{"field": "Title", "type": "nominal"}, {"field": "Major_Genre", "type": "nominal"}, {"field": "MPAA_Rating", "type": "nominal"}, {"field": "Rotten_Tomatoes_Rating", "title": "Rotten Tomatoes", "type": "quantitative"}, {"field": "IMDB_Rating", "title": "IMDB", "type": "quantitative"}, {"field": "Production_Budget", "format": "$,.0f", "title": "Budget", "type": "quantitative"}], "x": {"axis": {"labels": true, "title": "Rotten Tomatoes"}, "field": "Rotten_Tomatoes_Rating", "scale": {"zero": false}, "type": "quantitative"}, "y": {"axis": {"labels": true, "title": "Budget ($)"}, "field": "Production_Budget", "scale": {"zero": false}, "type": "quantitative"}}, "height": 200, "name": "view_2", "transform": [{"filter": {"param": "Rating"}}, {"filter": "isValid(datum.Major_Genre)"}], "width": 200}, {"mark": {"type": "circle", "size": 22}, "encoding": {"color": {"condition": {"test": {"and": [{"param": "brush"}, {"param": "genre"}]}, "field": "Major_Genre", "legend": {"columns": 2, "symbolLimit": 0, "title": "Major genre"}, "scale": {"scheme": "tableau20"}, "type": "nominal"}, "value": "#d9d9d9"}, "opacity": {"condition": {"test": {"and": [{"param": "brush"}, {"param": "genre"}]}, "value": 0.75}, "value": 0.12}, "size": {"condition": {"test": {"and": [{"param": "brush"}, {"param": "genre"}]}, "value": 30}, "value": 14}, "tooltip": [{"field": "Title", "type": "nominal"}, {"field": "Major_Genre", "type": "nominal"}, {"field": "MPAA_Rating", "type": "nominal"}, {"field": "Rotten_Tomatoes_Rating", "title": "Rotten Tomatoes", "type": "quantitative"}, {"field": "IMDB_Rating", "title": "IMDB", "type": "quantitative"}, {"field": "Production_Budget", "format": "$,.0f", "title": "Budget", "type": "quantitative"}], "x": {"axis": {"labels": true, "title": "IMDB"}, "field": "IMDB_Rating", "scale": {"zero": false}, "type": "quantitative"}, "y": {"axis": {"labels": false, "title": null}, "field": "Production_Budget", "scale": {"zero": false}, "type": "quantitative"}}, "height": 200, "name": "view_3", "transform": [{"filter": {"param": "Rating"}}, {"filter": "isValid(datum.Major_Genre)"}], "width": 200}], "spacing": 16}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/movies.json"}, "params": [{"name": "brush", "select": {"type": "interval", "resolve": "global"}, "views": ["view_1", "view_2", "view_3"]}, {"name": "Rating", "select": {"type": "point", "fields": ["MPAA_Rating"]}, "bind": {"input": "radio", "options": ["G", "PG", "PG-13", "R", "NC-17"], "name": "MPAA rating   "}, "value": [{"MPAA_Rating": "PG-13"}], "views": ["view_1", "view_2", "view_3"]}, {"name": "genre", "select": {"type": "point", "fields": ["Major_Genre"]}, "bind": "legend", "views": ["view_1", "view_2", "view_3"]}], "resolve": {"scale": {"color": "shared"}}, "spacing": 16, "title": {"text": "Movie genres by critics, audience and budget", "anchor": "middle", "fontSize": 18, "offset": 12, "subtitle": ["Drag inside any panel to brush \u2014 the selection highlights the same films in every other panel. Click a genre in the legend to isolate it.", "The radio buttons below filter by MPAA rating."], "subtitleColor": "gray", "subtitleFontSize": 12}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
