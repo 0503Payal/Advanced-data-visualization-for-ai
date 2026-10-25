@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"labelAngle": 0}}, "vconcat": [{"hconcat": [{"repeat": {"column": ["wind", "precipitation", "temp_max"], "row": ["temp_max", "precipitation", "wind"]}, "spec": {"mark": {"type": "point", "color": "#333333", "filled": true, "opacity": 0.45, "size": 15}, "encoding": {"x": {"field": {"repeat": "column"}, "type": "quantitative"}, "y": {"field": {"repeat": "row"}, "type": "quantitative"}}, "height": 125, "width": 125}}, {"repeat": {"row": ["temp_max", "precipitation", "wind"]}, "spec": {"layer": [{"mark": {"type": "bar", "color": "#333333", "opacity": 0.85}, "encoding": {"x": {"field": "date", "timeUnit": "month", "title": "Month", "type": "ordinal"}, "y": {"aggregate": "average", "field": {"repeat": "row"}, "type": "quantitative"}}}, {"mark": {"type": "rule", "stroke": "#D55E00", "strokeWidth": 2}, "encoding": {"y": {"aggregate": "average", "field": {"repeat": "row"}, "type": "quantitative"}}}], "height": 125, "width": 175}}]}, {"facet": {"column": {"field": "weather", "type": "nominal"}}, "spec": {"mark": {"type": "bar", "stroke": "#666666", "strokeWidth": 0.4}, "encoding": {"color": {"field": "weather", "legend": {"title": "Weather"}, "scale": {"domain": ["drizzle", "fog", "rain", "snow", "sun"], "range": ["#56B4E9", "#999999", "#08519C", "#EDEDED", "#E69F00"]}, "type": "nominal"}, "x": {"bin": true, "field": "temp_max", "title": "Temperature (\u00b0C)", "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "height": 100, "width": 115}}], "data": {"url": "https://vega.github.io/vega-datasets/data/weather.csv"}, "params": [{"name": "city", "bind": {"input": "select", "options": ["Seattle", "New York"], "name": "City  "}, "value": "Seattle"}], "resolve": {"legend": {"color": "independent"}}, "title": {"text": "Weather dashboard", "anchor": "start", "fontSize": 18, "subtitle": ["Choose a city from the dropdown below. The scatter plot matrix and monthly averages are drawn in a single neutral charcoal,", "so they read as \"no category\"; only the histograms along the bottom encode weather type by colour."], "subtitleColor": "gray", "subtitleFontSize": 12}, "transform": [{"filter": "(datum.location === city)"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
