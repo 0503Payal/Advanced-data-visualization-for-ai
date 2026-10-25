@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "title": {"anchor": "start", "offset": 5}}, "hconcat": [{"mark": {"type": "rect"}, "encoding": {"color": {"field": "Penicillin", "legend": {"tickCount": 5, "titleOrient": "right"}, "scale": {"nice": true, "scheme": "greys", "type": "log"}, "title": "Penicillin MIC (\u03bcg/ml)", "type": "quantitative"}, "tooltip": [{"field": "Bacteria", "type": "nominal"}, {"field": "Penicillin", "title": "MIC (\u03bcg/ml)", "type": "quantitative"}, {"field": "Gram_Staining", "type": "nominal"}], "y": {"axis": {"orient": "right", "title": null}, "field": "Bacteria", "sort": {"field": "Penicillin", "op": "max", "order": "descending"}, "type": "nominal"}}, "height": 300, "title": "greys", "width": 90}, {"mark": {"type": "rect"}, "encoding": {"color": {"field": "Penicillin", "legend": {"tickCount": 5, "titleOrient": "right"}, "scale": {"nice": true, "scheme": "viridis", "type": "log"}, "title": "Penicillin MIC (\u03bcg/ml)", "type": "quantitative"}, "tooltip": [{"field": "Bacteria", "type": "nominal"}, {"field": "Penicillin", "title": "MIC (\u03bcg/ml)", "type": "quantitative"}, {"field": "Gram_Staining", "type": "nominal"}], "y": {"axis": {"orient": "right", "title": null}, "field": "Bacteria", "sort": {"field": "Penicillin", "op": "max", "order": "descending"}, "type": "nominal"}}, "height": 300, "title": "viridis", "width": 90}, {"mark": {"type": "rect"}, "encoding": {"color": {"field": "Penicillin", "legend": {"tickCount": 5, "titleOrient": "right"}, "scale": {"nice": true, "scheme": "rainbow", "type": "log"}, "title": "Penicillin MIC (\u03bcg/ml)", "type": "quantitative"}, "tooltip": [{"field": "Bacteria", "type": "nominal"}, {"field": "Penicillin", "title": "MIC (\u03bcg/ml)", "type": "quantitative"}, {"field": "Gram_Staining", "type": "nominal"}], "y": {"axis": {"orient": "right", "title": null}, "field": "Bacteria", "sort": {"field": "Penicillin", "op": "max", "order": "descending"}, "type": "nominal"}}, "height": 300, "title": "rainbow", "width": 90}, {"mark": {"type": "rect"}, "encoding": {"color": {"field": "Penicillin", "legend": {"tickCount": 5, "titleOrient": "right"}, "scale": {"nice": true, "scheme": "yelloworangered", "type": "log"}, "title": "Penicillin MIC (\u03bcg/ml)", "type": "quantitative"}, "tooltip": [{"field": "Bacteria", "type": "nominal"}, {"field": "Penicillin", "title": "MIC (\u03bcg/ml)", "type": "quantitative"}, {"field": "Gram_Staining", "type": "nominal"}], "y": {"axis": {"orient": "right", "title": null}, "field": "Bacteria", "sort": {"field": "Penicillin", "op": "max", "order": "descending"}, "type": "nominal"}}, "height": 300, "title": "yelloworangered", "width": 90}], "data": {"name": "data-8833440f737304311e72aeeffd7b9881"}, "resolve": {"scale": {"color": "independent"}}, "spacing": 58, "title": {"text": "Penicillin resistance across four colour schemes", "anchor": "start", "fontSize": 17, "subtitle": ["Identical data and identical log scale; only the colour scheme changes. Bacteria are sorted by descending MIC,", "so the most resistant strains are at the top of every panel."], "subtitleColor": "gray", "subtitleFontSize": 12}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-8833440f737304311e72aeeffd7b9881": [{"Bacteria": "Aerobacter aerogenes", "Penicillin": 870.0, "Streptomycin": 1.0, "Neomycin": 1.6, "Gram_Staining": "negative", "Genus": "other"}, {"Bacteria": "Bacillus anthracis", "Penicillin": 0.001, "Streptomycin": 0.01, "Neomycin": 0.007, "Gram_Staining": "positive", "Genus": "other"}, {"Bacteria": "Brucella abortus", "Penicillin": 1.0, "Streptomycin": 2.0, "Neomycin": 0.02, "Gram_Staining": "negative", "Genus": "other"}, {"Bacteria": "Diplococcus pneumoniae", "Penicillin": 0.005, "Streptomycin": 11.0, "Neomycin": 10.0, "Gram_Staining": "positive", "Genus": "other"}, {"Bacteria": "Escherichia coli", "Penicillin": 100.0, "Streptomycin": 0.4, "Neomycin": 0.1, "Gram_Staining": "negative", "Genus": "other"}, {"Bacteria": "Klebsiella pneumoniae", "Penicillin": 850.0, "Streptomycin": 1.2, "Neomycin": 1.0, "Gram_Staining": "negative", "Genus": "other"}, {"Bacteria": "Mycobacterium tuberculosis", "Penicillin": 800.0, "Streptomycin": 5.0, "Neomycin": 2.0, "Gram_Staining": "negative", "Genus": "other"}, {"Bacteria": "Proteus vulgaris", "Penicillin": 3.0, "Streptomycin": 0.1, "Neomycin": 0.1, "Gram_Staining": "negative", "Genus": "other"}, {"Bacteria": "Pseudomonas aeruginosa", "Penicillin": 850.0, "Streptomycin": 2.0, "Neomycin": 0.4, "Gram_Staining": "negative", "Genus": "other"}, {"Bacteria": "Salmonella (Eberthella) typhosa", "Penicillin": 1.0, "Streptomycin": 0.4, "Neomycin": 0.008, "Gram_Staining": "negative", "Genus": "Salmonella"}, {"Bacteria": "Salmonella schottmuelleri", "Penicillin": 10.0, "Streptomycin": 0.8, "Neomycin": 0.09, "Gram_Staining": "negative", "Genus": "Salmonella"}, {"Bacteria": "Staphylococcus albus", "Penicillin": 0.007, "Streptomycin": 0.1, "Neomycin": 0.001, "Gram_Staining": "positive", "Genus": "Staphylococcus"}, {"Bacteria": "Staphylococcus aureus", "Penicillin": 0.03, "Streptomycin": 0.03, "Neomycin": 0.001, "Gram_Staining": "positive", "Genus": "Staphylococcus"}, {"Bacteria": "Streptococcus fecalis", "Penicillin": 1.0, "Streptomycin": 1.0, "Neomycin": 0.1, "Gram_Staining": "positive", "Genus": "Streptococcus"}, {"Bacteria": "Streptococcus hemolyticus", "Penicillin": 0.001, "Streptomycin": 14.0, "Neomycin": 10.0, "Gram_Staining": "positive", "Genus": "Streptococcus"}, {"Bacteria": "Streptococcus viridans", "Penicillin": 0.005, "Streptomycin": 10.0, "Neomycin": 40.0, "Gram_Staining": "positive", "Genus": "Streptococcus"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
