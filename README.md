@@ -117,7 +117,4 @@ needs `vl-convert-python`.
 
 The notebooks in `notebooks/` are course material from *Advanced Data
 Visualization for Artificial Intelligence* at Freie Universität Berlin, with my worked answers
-filled in; they are reproduced here for coursework documentation. Parts of the
-material derive in turn from the [UW Interactive Data Lab](https://idl.cs.washington.edu/)
-Altair curriculum. The homework submissions in `homework/`, the solutions in `solutions/` and the
-exported charts are my own work, released under the MIT licence.
+filled in.
