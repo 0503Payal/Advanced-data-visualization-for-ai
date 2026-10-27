@@ -15,25 +15,42 @@ context.
 | 1 | Overview + detail of car production origins over time, with hover and linked brushing | [chart](homework/hw1_overview_and_detail/solution.html) · [write-up](homework/hw1_overview_and_detail) |
 | 2 | Population, life expectancy and fertility in three panels on one shared year slider | [chart](homework/hw2_linked_panels/solution.html) · [write-up](homework/hw2_linked_panels) |
 | 3 | Diverging vs sequential palette on a 2D histogram | [chart](homework/hw3_diverging_palette/solution.html) · [write-up](homework/hw3_diverging_palette) |
-| 4 | Small multiples across four colour schemes, with a colour-vision accessibility check | [chart](homework/hw4_colour_schemes/solution.html) · [notebook](homework/hw4_colour_schemes/solution.ipynb) · [write-up](homework/hw4_colour_schemes) |
+| 4 | Small multiples across four colour schemes, with a colour-vision accessibility check | [chart](homework/hw4_colour_schemes/solution.html) · [write-up](homework/hw4_colour_schemes) |
+| 5 | Weather dashboard with a city dropdown and a colour-blind-safe categorical palette | [chart](homework/hw5_dropdown_and_palette/solution.html) · [write-up](homework/hw5_dropdown_and_palette) |
+| 6 | Genre scatter plot matrix with linked brushing and an MPAA filter | [chart](homework/hw6_genre_splom/solution.html) · [write-up](homework/hw6_genre_splom) |
+| 7 | County unemployment under six map projections, with measured area distortion | [chart](homework/hw7_map_projections/solution.html) · [write-up](homework/hw7_map_projections) |
 
-### Worth a look: Homework 4
+### A theme: measuring instead of eyeballing
 
-The assignment asks for an accessibility check using an online colour-blindness
-simulator. Instead of eyeballing a screenshot, I sampled each colour ramp from
-its own rendered output, ran it through the Machado et al. (2009) dichromacy
-matrices, and measured the result in CIELAB.
+Three of these assignments ask for a judgement — which colour scheme, which
+palette, which projection. In each case I measured the thing being judged
+rather than deciding by eye, and in each case the measurement said something
+the eye would have missed.
 
-That turned an impression into a finding: **the `rainbow` scheme has a total
-perceptual range of 0.0 — for normal vision too.** It is cyclic, beginning and
-ending on the same purple, so the most and least antibiotic-resistant bacteria
-come out the same colour. It is not an accessibility failure so much as the
-wrong scheme for a sequential quantity, for everyone.
-
-`viridis` wins on the numbers: the widest range of the four, 91% of it retained
-under deuteranopia, and monotonic ordering preserved under every simulation.
+**Homework 4** asks for an accessibility check with an online colour-blindness
+simulator. Sampling each ramp from its own rendered output, running it through
+the Machado et al. (2009) dichromacy matrices and comparing in CIELAB turned an
+impression into a finding: **the `rainbow` scheme has a total perceptual range
+of 0.0 — for normal vision too.** It is cyclic, starting and ending on the same
+purple, so the most and least antibiotic-resistant bacteria come out the same
+colour. Not an accessibility failure so much as the wrong scheme for a
+sequential quantity, for everyone.
 
 ![](homework/hw4_colour_schemes/colour_vision_check.png)
+
+**Homework 5** found the same kind of invisible problem in a categorical
+palette: rain and snow sat at ΔE 5.7 under protanopia, effectively identical.
+Constraining each category to semantically acceptable hues and then optimising
+for worst-case separation lifted that to **30.5**. The limiting pair is now fog
+against snow — and its ΔE is identical under every vision type, because those
+two differ in *lightness* rather than hue. Separating categories by lightness is
+what makes a palette robust.
+
+**Homework 7** measured the local area scale factor of each map projection by
+finite differences. The equal-area projections hold at 1.005; **Mercator spreads
+by 1.91**, so a county on the Canadian border occupies 91% more of the page per
+square kilometre than one on the Gulf coast. On a choropleth, where visual
+weight *is* area, that silently inflates the story.
 
 ## Exercises
 
