@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}}, "hconcat": [{"layer": [{"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": null}, "encoding": {"color": {"field": "rate", "legend": {"direction": "horizontal", "format": ".0%", "gradientLength": 240, "orient": "bottom", "title": "Unemployment rate"}, "scale": {"clamp": true, "domain": [0, 0.18], "scheme": "viridis"}, "type": "quantitative"}, "tooltip": [{"field": "id", "title": "County FIPS", "type": "nominal"}, {"field": "rate", "format": ".1%", "title": "Rate", "type": "quantitative"}]}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}]}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "fill": null, "stroke": "white", "strokeWidth": 0.4}}], "height": 210, "projection": {"type": "albersUsa"}, "title": "albersUsa \u2014 composite, Alaska moved and resized", "width": 330}, {"layer": [{"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json", "format": {"feature": "counties", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": null}, "encoding": {"color": {"field": "rate", "legend": {"direction": "horizontal", "format": ".0%", "gradientLength": 240, "orient": "bottom", "title": "Unemployment rate"}, "scale": {"clamp": true, "domain": [0, 0.18], "scheme": "viridis"}, "type": "quantitative"}, "tooltip": [{"field": "id", "title": "County FIPS", "type": "nominal"}, {"field": "rate", "format": ".1%", "title": "Rate", "type": "quantitative"}]}, "transform": [{"lookup": "id", "from": {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/unemployment.tsv"}, "key": "id", "fields": ["rate"]}}]}, {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "fill": null, "stroke": "white", "strokeWidth": 0.4}}], "height": 210, "projection": {"rotate": [96, 0, 0], "type": "equalEarth"}, "title": "equalEarth \u2014 one true projection, real positions", "width": 330}], "resolve": {"scale": {"color": "shared"}}, "spacing": 16, "title": {"text": "The same data, with Alaska, Hawaii and Puerto Rico included", "anchor": "start", "fontSize": 15, "subtitle": ["albersUsa is three projections glued together. On the left Alaska is shrunk and parked below California; on the right it sits where it really is, far to the northwest,", "and at its true size \u2014 about a fifth the area of all the contiguous states combined."], "subtitleColor": "gray", "subtitleFontSize": 11}, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json"};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
