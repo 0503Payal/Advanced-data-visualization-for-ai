@@ -19,6 +19,7 @@ context.
 | 5 | Weather dashboard with a city dropdown and a colour-blind-safe categorical palette | [chart](homework/hw5_dropdown_and_palette/solution.html) · [write-up](homework/hw5_dropdown_and_palette) |
 | 6 | Genre scatter plot matrix with linked brushing and an MPAA filter | [chart](homework/hw6_genre_splom/solution.html) · [write-up](homework/hw6_genre_splom) |
 | 7 | County unemployment under six map projections, with measured area distortion | [chart](homework/hw7_map_projections/solution.html) · [write-up](homework/hw7_map_projections) |
+| 8 | Full exploratory analysis of a categorical-target and a continuous-target dataset | [report](homework/hw8_exploratory_analysis/solution.html) · [write-up](homework/hw8_exploratory_analysis) |
 
 ### A theme: measuring instead of eyeballing
 
@@ -51,6 +52,15 @@ finite differences. The equal-area projections hold at 1.005; **Mercator spreads
 by 1.91**, so a county on the Canadian border occupies 91% more of the page per
 square kilometre than one on the Gulf coast. On a choropleth, where visual
 weight *is* area, that silently inflates the story.
+
+**Homework 8** contrasts a categorical-target dataset with a continuous-target
+one, which is where correlation and mutual information start to disagree. They
+rank the diabetes features almost identically — the relationships are largely
+linear — but `s3` is the only strongly *negative* correlation, and mutual
+information cannot see that, because it measures dependence without direction.
+The matrices also expose that `s1` and `s2` are nearly the same variable
+(MI 0.753, |r| 0.897): total cholesterol and LDL, biologically coupled, and
+collinear if both are fed to a model.
 
 ## Exercises
 
